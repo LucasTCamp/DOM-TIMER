@@ -1,15 +1,12 @@
 let count = 0;
 let timerId = 0;
 
-const btnStart = document.getElementById('btnStart');
+const Start = document.getElementById('startTimer');
+const Stop = document.getElementById('stopTimer');
+const Reset = document.getElementById('resetTimer');
+const display = document.getElementById('timerDisplay');
 
-const btnStop = document.getElementById('btnStop');
-
-const btnReset = document.getElementById('btnReset');
-
-const display = document.getElementById('display');
-
-function runTimer() {
+function kickOffTimer() {
     if (timerId === 0) {
         timerId = setInterval(() => {
             count++;
@@ -23,24 +20,12 @@ function pauseTimer() {
     timerId = 0;
 }
 
-function resetAll() {
+function clearTimer() {
     pauseTimer();
     count = 0;
     display.innerHTML = count;
 }
 
-btnStart.addEventListener('click', runTimer);
-
-btnStop.addEventListener('click', pauseTimer);
-
-btnReset.addEventListener('click', resetAll);
-
-
-
-
-
-
-
-
-
-//FWAEH
+Start.addEventListener('click', kickOffTimer);
+Stop.addEventListener('click', pauseTimer);
+Reset.addEventListener('click', clearTimer);
